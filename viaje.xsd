@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="viaje">
-        
-    </xs:element>
+  <xs:element name="viaje">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fecha" type="xs:date" />
+        <xs:element name="hora" type="xs:time" />
+        <xs:element name="precio" type="xs:decimal" />
+        <xs:element name="participantes" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="participante" maxOccurs="70">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="nombre">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="20">
+                          </xs:maxLength>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="apellidos">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="20">
+                          </xs:maxLength>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="nif">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:pattern value="[0-9]{8}[A-Z]">
+                          </xs:pattern>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="fechaNac" type="xs:date" />
+                    <xs:choice>
+                      <xs:element name="profesor">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="telf">
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:pattern value="[0-9]{9}"></xs:pattern>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="mail">
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:pattern
+                                    value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"></xs:pattern>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:element>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                      <xs:element name="alumno">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="telfPadre">
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:pattern value="[0-9]{9}|"></xs:pattern>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="telfMadre">
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:pattern value="[0-9]{9}|"></xs:pattern>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="grupo" type="xs:string" />
+                            <xs:element name="humor" type="xs:boolean" />
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:choice>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
