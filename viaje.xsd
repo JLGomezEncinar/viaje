@@ -6,7 +6,7 @@
         <xs:element name="fecha" type="xs:date" />
         <xs:element name="hora" type="xs:time" />
         <xs:element name="precio" type="xs:decimal" />
-        <xs:element name="participantes" >
+        <xs:element name="participantes">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="participante" maxOccurs="70">
